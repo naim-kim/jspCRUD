@@ -1,0 +1,48 @@
+@font-face {
+    font-family: 'SamlipOutline';
+    src: url('fonts/SDSamliphopangcheOutline.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'SamlipBasic';
+    src: url('fonts/SDSamliphopangcheBasic.otf') format('opentype');
+}
+
+body {
+    font-family: 'SamlipBasic', sans-serif;
+}
+
+main {
+    font-family: "SamlipBasic", sans-serif;
+}
+
+body {
+    font-family: 'SamlipBasic', sans-serif;
+}
+
+h1.title_font {
+    font-family: "SamlipOutline", sans-serif;
+}
+
+header {
+    font-family: "SamlipBasic", sans-serif;
+}
+
+.action-icons .edit i {
+    color: #FFC107;
+    margin-right: 15px;
+}
+
+.action-icons .edit i:hover {
+    color: #ffe28d;
+}
+
+.edit i.material-icons {
+    color: #FFC107;
+    font-size: 100%;
+    text-align: center;
+}
+
+.edit i.material-icons:hover {
+    color: #ffe28d;
+}
