@@ -1,27 +1,49 @@
 @font-face {
     font-family: 'SamlipOutline';
-    src: url('fonts/SDSamliphopangcheOutline.otf') format('opentype');
+    src: url('../fonts/SDSamliphopangcheOutline.otf') format('opentype');
 }
 
 @font-face {
     font-family: 'SamlipBasic';
-    src: url('fonts/SDSamliphopangcheBasic.otf') format('opentype');
+    src: url('../fonts/SDSamliphopangcheBasic.otf') format('opentype');
+}
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
 }
 
 body {
     font-family: 'SamlipBasic', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #98cfe9;
+    color: #fff;
+    text-align: left;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 38px;
 }
 
 main {
+    width: 90%;
+    height:95%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
     font-family: "SamlipBasic", sans-serif;
 }
 
-body {
-    font-family: 'SamlipBasic', sans-serif;
-}
-
-h1.title_font {
-    font-family: "SamlipOutline", sans-serif;
+h2.sub {
+    font-family: "SamlipBasic", sans-serif;
+    font-size: 30px;
+    text-align: center;
+    margin: 20px;
 }
 
 header {
@@ -46,3 +68,212 @@ header {
 .edit i.material-icons:hover {
     color: #ffe28d;
 }
+.b-example-divider {
+    width: 100%;
+    height: 3rem;
+    background-color: rgba(0, 0, 0, .1);
+    border: solid rgba(0, 0, 0, .15);
+    border-width: 1px 0;
+    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
+
+.b-example-vr {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 100vh;
+}
+
+.bi {
+    vertical-align: -.125em;
+    fill: currentColor;
+}
+
+.nav-scroller {
+    position: relative;
+    z-index: 2;
+    height: 2.75rem;
+    overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+    display: flex;
+    flex-wrap: nowrap;
+    padding-bottom: 1rem;
+    margin-top: -1px;
+    overflow-x: auto;
+    text-align: center;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+
+.exp {
+    padding: 2px;
+}
+
+.view {
+    color: #404E67;
+    background: lightgray;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.table-wrapper {
+    width: 95%;
+    background: #fff;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    border-radius: 10px;
+}
+
+.action-icons {
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+}
+
+.action-icons .add i {
+    color: #27C46B;
+    margin-right: 15px;
+}
+
+.action-icons .add i:hover {
+    color: #75ce9b;
+    margin-right: 15px;
+}
+
+.action-icons .edit i {
+    color: #FFC107;
+    margin-right: 15px;
+}
+
+.action-icons .edit i:hover {
+    color: #ffe28d;
+}
+
+.action-icons .home i {
+    color: #b62b2b;
+    margin-right: 15px;
+}
+
+.action-icons .delete i {
+    color: #c26161;
+}
+
+table.table td i {
+    font-size: 19px;
+}
+
+table.table td a.add i {
+    font-size: 24px;
+    margin-right: -1px;
+    position: relative;
+    top: 3px;
+}
+
+.edit i.material-icons {
+    color: #FFC107;
+    font-size: 100%;
+    text-align: center;
+}
+
+.edit i.material-icons:hover {
+    color: #ffe28d;
+}
+
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.radio-label {
+    padding-left: 20px;
+}
+
+.enter-buttons {
+    text-align: right;
+}
+
+body.view {
+    font-family: 'SamlipBasic', sans-serif;
+}
+.buttons {
+    text-align: right;
+}
+
+
+.table tr td label {
+    width: 100%;
+    min-width: 300px;
+}
+/** main + icon **/
+.my_info {
+    text-align: center;
+}
+
+.my_info img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.my_info h2 {
+    font-size: 24px;
+}
+
+.my_info p {
+    margin-top: 5px;
+    color: #777;
+}
+
+.bio h2 {
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+.bio p {
+    line-height: 1.5;
+}
+
+
+footer h1 {
+    font-size: 20px;
+    color: #ffffff;
+    padding: 20px;
+    background-color: rgb(20, 48, 38);
+}
+
+.profile-items {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    height: 200px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+    padding-top: 5px;
+}
+
+.profile-items img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.profile-title {
+    font-size: 20px;
+    text-align: center;
+
+}
+
+

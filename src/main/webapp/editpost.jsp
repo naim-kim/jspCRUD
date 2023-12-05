@@ -1,14 +1,33 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@page import="com.crud.dao.BoardDAO"%>
-
-<% request.setCharacterEncoding("utf-8"); %>
-
-<jsp:useBean id="u" class="com.crud.bean.BoardVO" />
-<jsp:setProperty property="*" name="u"/>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="com.example.jspcrud.dao.BoardDAO"%>
+<%@ page import="com.example.jspcrud.util.FileUpload" %>
+<%@ page import="com.example.jspcrud.vo.BoardVO" %>
 
 <%
-	BoardDAO boardDAO = new BoardDAO();
-	int i=boardDAO.updateBoard(u);
-	response.sendRedirect("posts.jsp");
+	try {
+		request.setCharacterEncoding("utf-8");
+		BoardDAO boardDAO = new BoardDAO();
+		FileUpload upload = new FileUpload();
+		BoardVO u = upload.uploadPhoto(request);
+
+		int k = boardDAO.updateBoard(u);
+		String msg;
+
+		if (k == 1) {
+			msg = "데이터 수정 성공!";
+		} else {
+			msg = "에러 발생: 데이터 수정";
+		}
+%>
+
+<script>
+	alert('<%=msg%>');
+	location.href='posts.jsp';
+</script>
+
+<%
+	} catch (Exception e) {
+		System.out.println("에러 발생: " + e.getMessage());
+		e.printStackTrace();
+	}
 %>

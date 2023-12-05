@@ -1,4 +1,4 @@
-package com.example.jspcrud;
+package com.example.jspcrud.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

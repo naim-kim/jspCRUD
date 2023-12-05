@@ -1,69 +1,72 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@page import="com.crud.dao.BoardDAO, com.crud.bean.BoardVO,java.util.*"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="com.example.jspcrud.dao.BoardDAO, com.example.jspcrud.vo.BoardVO, java.util.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>free board</title>
-<style>
-#list {
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-#list td, #list th {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align:center;
-}
-#list tr:nth-child(even){background-color: #f2f2f2;}
-#list tr:hover {background-color: #ddd;}
-#list th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: center;
-  background-color: #006bb3;
-  color: white;
-}
-</style>
-<script>
-	function delete_ok(id){
-		var a = confirm("정말로 삭제하겠습니까?");
-		if(a) location.href='deletepost.jsp?id=' + id;
-	}
-</script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Main Page</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="styles/style.css">
+	<style>
+		.photo-col {
+			width: 300px;
+		}
+		.form-table-col {
+			width: 80%;
+		}
+		.form-control {
+			width: 100%;
+		}
+		.profile-items img {
+			width: 150px;
+			height: 150px;
+			object-fit: cover;
+			border-radius: 50%;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+		}
+
+	</style>
 </head>
 <body>
-<h1>자유게시판</h1>
-<%
-	BoardDAO boardDAO = new BoardDAO();
-	List<BoardVO> list = boardDAO.getBoardList();
-	request.setAttribute("list",list);
-%>
-<table id="list" width="90%">
-<tr>
-	<th>Id</th>
-	<th>Title</th>
-	<th>Writer</th>
-	<th>Content</th>
-	<th>Regdate</th>
-	<th>Edit</th>
-	<th>Delete</th>
-</tr>
-<c:forEach items="${list}" var="u">
-	<tr>
-		<td>${u.getSeq()}</td>
-		<td>${u.getTitle()}</td>
-		<td>${u.getWriter()}</td>
-		<td>${u.getContent()}</td>
-		<td>${u.getRegdate()}</td>
-		<td><a href="editform.jsp?id=${u.getSeq()}">Edit</a></td>
-		<td><a href="javascript:delete_ok('${u.getSeq()}')">Delete</a></td>
-	</tr>
-</c:forEach>
-</table>
-<br/><a href="addpostform.jsp">Add New Post</a>
+<header>
+	<h1>FriendVault</h1>
+
+</header>
+<main>
+	<section class="my_info">
+		<img src="ProfilePic.jpg" alt="My ProfilePic">
+		<h2>Hello! welcome to my Friend Vault! </h2>
+		<p><a href="viewpost.jsp" class="btn btn-primary custom-btn"> [ No thanks I just want to see the list ]</a>
+		<p><a href="addpostform.jsp" class="btn btn-primary custom-btn"> [ Click Here to be part of the squad ]</a>
+		</p>
+	</section>
+
+<div class="container">
+	<div class="profile-grid">
+		<%
+			BoardDAO boardDAO = new BoardDAO();
+			List<BoardVO> list = boardDAO.getBoardList();
+			request.setAttribute("list", list);
+		%>
+		<c:forEach items="${list}" var="u" varStatus="loop">
+			<div class="profile-items">
+				<a href="viewpost.jsp?id=${u.seq}" class="edit-link">
+					<img src="<%= request.getContextPath() %>/upload/<c:out value="${u.photo}"/>" alt="Image ${loop.index + 1}">
+				</a>
+				<div class="profile-title">${u.title}</div>
+
+			</div>
+		</c:forEach>
+	</div>
+
+</div>
+	</main>
 </body>
 </html>

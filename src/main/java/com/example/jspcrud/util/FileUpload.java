@@ -1,7 +1,7 @@
-package com.example.jspmyboard.util;
+package com.example.jspcrud.util;
 
-import com.example.jspmyboard.dao.BoardDAO;
-import com.example.jspmyboard.vo.BoardVO;
+import com.example.jspcrud.dao.BoardDAO;
+import com.example.jspcrud.vo.BoardVO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import javax.servlet.http.HttpServletRequest;
@@ -31,9 +31,10 @@ public class FileUpload {
             one.setTitle(multipartRequest.getParameter("title"));
             one.setWriter(multipartRequest.getParameter("writer"));
             one.setMbti(multipartRequest.getParameter("mbti"));
-            one.setContent(multipartRequest.getParameter("content"));
+            one.setContacts(multipartRequest.getParameter("contacts"));
+            one.setComment(multipartRequest.getParameter("comment"));
             one.setPhoto(multipartRequest.getParameter("photo"));
-            one.setInfo(multipartRequest.getParameter("info"));
+
 
             if(sid != null && !sid.isEmpty()) {
                 BoardDAO dao = new BoardDAO();

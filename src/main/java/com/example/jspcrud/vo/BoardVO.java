@@ -1,4 +1,4 @@
-package com.crud.bean;
+package com.example.jspcrud.vo;
 
 import java.util.Date;
 
@@ -6,10 +6,12 @@ public class BoardVO {
 	private int seq;
 	private String title;
 	private String writer;
-	private String content;
+	private String contacts;
+	private String mbti;
+	private String comment;
+	private String photo;
 	private Date regdate;
 	private int cnt;
-	
 	public int getSeq() {
 		return seq;
 	}
@@ -28,11 +30,39 @@ public class BoardVO {
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
-	public String getContent() {
-		return content;
+	public String getContacts() {
+		return contacts;
 	}
-	public void setContent(String content) {
-		this.content = content;
+	public void setContacts(String contacts) {
+		this.contacts = contacts;
+	}
+
+	public String getMbti() {
+		return mbti;
+	}
+
+	public void setMbti(String mbti) {
+		this.mbti = mbti;
+	}
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
+	public String getGetPhoto() {
+		return photo;
+
 	}
 	public Date getRegdate() {
 		return regdate;
@@ -46,4 +76,6 @@ public class BoardVO {
 	public void setCnt(int cnt) {
 		this.cnt = cnt;
 	}
+
+
 }

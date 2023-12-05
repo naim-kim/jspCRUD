@@ -1,31 +1,102 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
- <%@page import="com.crud.dao.BoardDAO, com.crud.bean.BoardVO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="com.example.jspcrud.dao.BoardDAO, com.example.jspcrud.vo.BoardVO" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Edit Form</title>
+	<meta charset="UTF-8">
+	<title>Edit Form</title>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="styles/style.css">
+	<style>
+		.photo-col {
+			width: 300px;
+		}
+		.form-table-col {
+			width: 80%;
+		}
+		img {
+			margin: 20px;
+		}
+		.form-control {
+			width: 100%;
+		}
+	</style>
 </head>
 <body>
+<header>
+	<h1>FriendVault</h1>
+</header>
+<section>
+	<h2 class="sub">- Edit -</h2>
 
+</section>
 <%
 	BoardDAO boardDAO = new BoardDAO();
-	String id=request.getParameter("id");	
-	BoardVO u=boardDAO.getBoard(Integer.parseInt(id));
+	String id = request.getParameter("id");
+	BoardVO u = boardDAO.getBoard(Integer.parseInt(id));
+	request.setAttribute("vo", u);
 %>
 
-<h1>Edit Form</h1>
-<form action="editpost.jsp" method="post">
-<input type="hidden" name="seq" value="<%=u.getSeq() %>"/>
-<table>
-<tr><td>Title:</td><td><input type="text" name="title" value="<%= u.getTitle()%>"/></td></tr>
-<tr><td>Writer:</td><td><input type="text" name="writer" value="<%= u.getWriter()%>" /></td></tr>
-<tr><td>Content:</td><td><textarea cols="50" rows="5" name="content"><%= u.getContent()%></textarea></td></tr>
-<tr><td colspan="2"><input type="submit" value="Edit Post"/>
-<input type="button" value="Cancel" onclick="history.back()"/></td></tr>
-</table>
-</form>
+<div class="container">
+
+	<form action="editpost.jsp" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="seq" value="<%=u.getSeq()%>"/>
+		<div class="row">
+			<div class="col-md-6">
+
+				<c:if test="${vo.getPhoto() ne ''}">
+					<img src="${pageContext.request.contextPath }/upload/${vo.getPhoto()}" class="photo" width="250" height="auto">
+				</c:if>
+				<div class="photo-col">
+					<label>Profile picture: </label> <input type="file" name="photo" value="${vo.getPhoto()}">
+				</div>
+			</div>
+			<div class="col-md-6">
+				<table class="table form-table-col">
+					<tr>
+						<td>Nickname:</td>
+						<td><label>
+							<input type="text" class="form-control" name="title" value="<%= u.getTitle()%>"/>
+						</label></td>
+					</tr>
+					<tr>
+						<td>Name:</td>
+						<td><label>
+							<input type="text" class="form-control" name="writer" value="<%= u.getWriter()%>"/>
+						</label></td>
+					</tr>
+					<tr>
+						<td>Contact number:</td>
+						<td><label>
+							<input type="text" class="form-control" name="contacts" value="<%= u.getContacts()%>"/>
+						</label></td>
+					</tr>
+					<tr>
+						<td>MBTI:</td>
+						<td><label>
+							<input type="text" class="form-control" name="mbti" value="<%= u.getMbti()%>"/>
+						</label></td>
+					</tr>
+					<tr>
+						<td>Any comment:</td>
+						<td><label>
+							<textarea class="form-control" rows="5" name="comment"><%= u.getWriter()%></textarea>
+						</label></td>
+					</tr>
+				</table>
+				<div class="buttons">
+					<div class="col-md-12">
+						<input type="submit" class="btn btn-primary" value="Submit"/>
+						<a class="btn btn-danger" href="deletepost.jsp?id=<%= u.getSeq() %>">Delete</a>
+						<a class="btn btn-secondary" href="javascript:history.back()">Go back</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</form>
+</div>
 
 </body>
 </html>
