@@ -16,7 +16,7 @@
 </head>
 <body>
 <header>
-    <h1 onclick="goHome()">FriendVault</h1>
+    <h1 class="page-title" onclick="goHome()">FriendVault</h1>
 </header>
 <section>
     <h2 class="sub">- Tell me About You -</h2>
