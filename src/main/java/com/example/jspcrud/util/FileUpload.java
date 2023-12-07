@@ -4,9 +4,10 @@ import com.example.jspcrud.dao.BoardDAO;
 import com.example.jspcrud.vo.BoardVO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
 import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
 import java.io.File;
+import java.io.IOException;
 
 
 public class FileUpload {
@@ -16,10 +17,10 @@ public class FileUpload {
 
         String realPath = request.getServletContext().getRealPath("upload");
         File dir = new File(realPath);
-        if(!dir.exists()) dir.mkdirs();
+        if (!dir.exists()) dir.mkdirs();
 
         BoardVO one = null;
-        MultipartRequest multipartRequest= null;
+        MultipartRequest multipartRequest = null;
         try {
             multipartRequest = new MultipartRequest(request, realPath, sizeLimit,
                     "utf-8", new DefaultFileRenamePolicy());
@@ -27,7 +28,7 @@ public class FileUpload {
 
             one = new BoardVO();
             String sid = multipartRequest.getParameter("seq");
-            if(sid!=null&& !sid.equals("")) one.setSeq(Integer.parseInt(sid));
+            if (sid != null && !sid.equals("")) one.setSeq(Integer.parseInt(sid));
             one.setTitle(multipartRequest.getParameter("title"));
             one.setWriter(multipartRequest.getParameter("writer"));
             one.setMbti(multipartRequest.getParameter("mbti"));
@@ -36,11 +37,11 @@ public class FileUpload {
             one.setPhoto(multipartRequest.getParameter("photo"));
 
 
-            if(sid != null && !sid.isEmpty()) {
+            if (sid != null && !sid.isEmpty()) {
                 BoardDAO dao = new BoardDAO();
                 String oldfilename = dao.getPhotoFilename(Integer.parseInt(sid));
-                if(filename!=null && oldfilename!=null) FileUpload.deleteFile(request, oldfilename);
-                else if(filename == null && oldfilename != null) filename = oldfilename;
+                if (filename != null && oldfilename != null) FileUpload.deleteFile(request, oldfilename);
+                else if (filename == null && oldfilename != null) filename = oldfilename;
             }
             one.setPhoto(filename);
         } catch (IOException e) {
@@ -52,6 +53,6 @@ public class FileUpload {
     public static void deleteFile(HttpServletRequest request, String filename) {
         String filePath = request.getServletContext().getRealPath("upload");
         File f = new File(filePath + "/" + filename);
-        if(f.exists()) f.delete();
+        if (f.exists()) f.delete();
     }
 }

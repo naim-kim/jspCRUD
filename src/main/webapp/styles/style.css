@@ -1,4 +1,3 @@
-
 @font-face {
     font-family: 'SamlipOutline';
     src: url('../fonts/SDSamliphopangcheOutline.otf') format('opentype');
@@ -8,30 +7,39 @@
     font-family: 'SamlipBasic';
     src: url('../fonts/SDSamliphopangcheBasic.otf') format('opentype');
 }
+
 /* Global Styles */
 body, h1, h2, p {
     margin: 0;
     padding: 0;
 }
+
 body {
     font-family: 'SamlipBasic', sans-serif;
     background-color: #f0f0f0;
     text-align: center;
 
 }
+
 header {
     background-color: #98cfe9;
     color: #fff;
     text-align: left;
     padding: 20px;
 }
-.page-title {
-    font-size: 38px;
+
+h1 {
+    font-family: 'SamlipOutline', sans-serif;
+    font-size: 50px;
+    text-align: center;
+    margin: 20px;
 }
+
 .page-title:hover {
-    cursor: pointer;
+    cursor: default;
     color: #3a5867;
 }
+
 main {
     padding: 20px;
     margin: 20px;

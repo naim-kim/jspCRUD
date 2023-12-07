@@ -1,33 +1,33 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="com.example.jspcrud.dao.BoardDAO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="com.example.jspcrud.dao.BoardDAO" %>
 <%@ page import="com.example.jspcrud.util.FileUpload" %>
 <%@ page import="com.example.jspcrud.vo.BoardVO" %>
 
 <%
-	try {
-		request.setCharacterEncoding("utf-8");
-		BoardDAO boardDAO = new BoardDAO();
-		FileUpload upload = new FileUpload();
-		BoardVO u = upload.uploadPhoto(request);
+    try {
+        request.setCharacterEncoding("utf-8");
+        BoardDAO boardDAO = new BoardDAO();
+        FileUpload upload = new FileUpload();
+        BoardVO u = upload.uploadPhoto(request);
 
-		int k = boardDAO.updateBoard(u);
-		String msg;
+        int k = boardDAO.updateBoard(u);
+        String msg;
 
-		if (k == 1) {
-			msg = "Edited!";
-		} else {
-			msg = "Error: Failed Uploading edited info";
-		}
+        if (k == 1) {
+            msg = "Edited Successfully!";
+        } else {
+            msg = "Error: Failed Uploading edited info";
+        }
 %>
 
 <script>
-	alert('<%=msg%>');
-	location.href='posts.jsp';
+    alert('<%=msg%>');
+    location.href = 'posts.jsp';
 </script>
 
 <%
-	} catch (Exception e) {
-		System.out.println("에러 발생: " + e.getMessage());
-		e.printStackTrace();
-	}
+    } catch (Exception e) {
+        System.out.println("에러 발생: " + e.getMessage());
+        e.printStackTrace();
+    }
 %>
