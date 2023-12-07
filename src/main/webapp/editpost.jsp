@@ -14,9 +14,9 @@
 		String msg;
 
 		if (k == 1) {
-			msg = "데이터 수정 성공!";
+			msg = "Edited!";
 		} else {
-			msg = "에러 발생: 데이터 수정";
+			msg = "Error: Failed Uploading new info";
 		}
 %>
 

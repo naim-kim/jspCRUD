@@ -29,19 +29,19 @@
             <tr>
                 <td>Name:</td>
                 <td><label>
-                    <input type="text" class="form-control" name="writer"/>
+                    <input type="text" class="form-control" name="writer" required/>
                 </label></td>
             </tr>
             <tr>
                 <td>Contact number:</td>
                 <td><label>
-                    <input type="text" class="form-control" name="contacts"/>
+                    <input type="text" class="form-control" name="contacts" required/>
                 </label></td>
             </tr>
             <tr>
                 <td>MBTI:</td>
                 <td><label>
-                    <input type="text" class="form-control" name="mbti"/>
+                    <input type="text" class="form-control" name="mbti" required/>
                 </label></td>
             </tr>
             <tr>

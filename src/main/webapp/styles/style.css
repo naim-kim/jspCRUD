@@ -1,3 +1,4 @@
+
 @font-face {
     font-family: 'SamlipOutline';
     src: url('../fonts/SDSamliphopangcheOutline.otf') format('opentype');
@@ -7,37 +8,33 @@
     font-family: 'SamlipBasic';
     src: url('../fonts/SDSamliphopangcheBasic.otf') format('opentype');
 }
+/* Global Styles */
 body, h1, h2, p {
     margin: 0;
     padding: 0;
 }
-
 body {
     font-family: 'SamlipBasic', sans-serif;
     background-color: #f0f0f0;
-    margin: 0;
-    padding: 0;
-}
+    text-align: center;
 
+}
 header {
     background-color: #98cfe9;
     color: #fff;
     text-align: left;
     padding: 20px;
 }
-
 header h1 {
     font-size: 38px;
 }
-
 main {
-    width: 90%;
-    height:95%;
-    margin: 20px auto;
     padding: 20px;
+    margin: 20px;
+    height: 100%;
     background-color: #fff;
-    font-family: "SamlipBasic", sans-serif;
 }
+
 
 h2.sub {
     font-family: "SamlipBasic", sans-serif;
@@ -46,28 +43,7 @@ h2.sub {
     margin: 20px;
 }
 
-header {
-    font-family: "SamlipBasic", sans-serif;
-}
 
-.action-icons .edit i {
-    color: #FFC107;
-    margin-right: 15px;
-}
-
-.action-icons .edit i:hover {
-    color: #ffe28d;
-}
-
-.edit i.material-icons {
-    color: #FFC107;
-    font-size: 100%;
-    text-align: center;
-}
-
-.edit i.material-icons:hover {
-    color: #ffe28d;
-}
 .b-example-divider {
     width: 100%;
     height: 3rem;
@@ -139,15 +115,6 @@ header {
     margin-right: 15px;
 }
 
-.action-icons .edit i {
-    color: #FFC107;
-    margin-right: 15px;
-}
-
-.action-icons .edit i:hover {
-    color: #ffe28d;
-}
-
 .action-icons .home i {
     color: #b62b2b;
     margin-right: 15px;
@@ -157,26 +124,7 @@ header {
     color: #c26161;
 }
 
-table.table td i {
-    font-size: 19px;
-}
 
-table.table td a.add i {
-    font-size: 24px;
-    margin-right: -1px;
-    position: relative;
-    top: 3px;
-}
-
-.edit i.material-icons {
-    color: #FFC107;
-    font-size: 100%;
-    text-align: center;
-}
-
-.edit i.material-icons:hover {
-    color: #ffe28d;
-}
 
 
 .form-group {
@@ -207,26 +155,8 @@ body.view {
     width: 100%;
     min-width: 300px;
 }
-/** main + icon **/
-.my_info {
-    text-align: center;
-}
 
-.my_info img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-}
 
-.my_info h2 {
-    font-size: 24px;
-}
-
-.my_info p {
-    margin-top: 5px;
-    color: #777;
-}
 
 .bio h2 {
     font-size: 24px;
@@ -245,29 +175,8 @@ footer h1 {
     background-color: rgb(20, 48, 38);
 }
 
-.profile-items {
-    margin: 0;
-    padding: 0;
-    width: 200px;
-    height: 200px;
-    box-sizing: border-box;
-    text-align: center;
-}
 
-.profile-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 20px;
-    padding-top: 5px;
-}
 
-.profile-items img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 50%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
 
 
 .profile-title {
@@ -276,4 +185,12 @@ footer h1 {
 
 }
 
-
+.photo-col {
+    width: 300px;
+}
+.form-table-col {
+    width: 80%;
+}
+.form-control {
+    width: 100%;
+}
