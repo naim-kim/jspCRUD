@@ -75,7 +75,6 @@
 				<div class="buttons">
 					<div class="col-md-12">
 						<input type="submit" class="btn btn-primary" value="Submit"/>
-						<a class="btn btn-danger" href="deletepost.jsp?id=<%= u.getSeq() %>">Delete</a>
 						<a class="btn btn-secondary" href="javascript:history.back()">Go back</a>
 					</div>
 				</div>

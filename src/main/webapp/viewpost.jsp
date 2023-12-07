@@ -78,18 +78,33 @@
             font-size: 19px;
         }
     </style>
-</head>
-<body>
-<header>
-    <h1>FriendVault</h1>
-</header>
-<main class="sub-pages">
     <%
         BoardDAO boardDAO = new BoardDAO();
         String id = request.getParameter("id");
         BoardVO post = boardDAO.getBoard(Integer.parseInt(id));
         request.setAttribute("post", post);
     %>
+
+    <script>
+        function confirmDelete() {
+            // Display a confirmation dialog
+            var isConfirmed = confirm("Warning: You are about to delete an item. This action cannot be undone. Are you sure you want to proceed?");
+
+            if (isConfirmed) {
+                window.location.href = "deletepost.jsp?id=<%= post.getSeq() %>";
+                alert("Post has been deleted.");
+            } else {
+                alert("Delete canceled.");
+            }
+        }
+
+    </script>
+</head>
+<body>
+<header>
+    <h1>FriendVault</h1>
+</header>
+<main class="sub-pages">
 
     <form id="viewPostForm" action="viewpost.jsp" method="get">
         <input type="hidden" name="id" value="<%= post.getSeq() %>"/>
@@ -127,7 +142,7 @@
             </table>
                     <div class="col-md-12">
                         <a class="bi bi-pencil" title="Edit" data-toggle="tooltip" href="editform.jsp?id=${post.getSeq()}"></a>
-                        <a class="btn btn-danger" href="deletepost.jsp?id=<%= post.getSeq() %>">Delete</a>
+                        <a class="btn btn-danger" onclick="confirmDelete()">Delete</a>
                         <a class="btn btn-secondary" href="javascript:history.back()">Go back</a>
                     </div>
                 </td>
