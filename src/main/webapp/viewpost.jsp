@@ -6,12 +6,9 @@
 <head>
     <meta charset="UTF-8">
     <title>View Post</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="styles/style.css">
     <style>
         @font-face {
@@ -56,24 +53,12 @@
             margin: 20px auto;
         }
         /* edit icon */
-        .action-icons .edit i {
-            color: #FFC107;
-            margin-right: 15px;
+        .bi-pencil {
+            font-size: 1.5rem; /* Adjust the size as needed */
+            color: #007bff; /* Bootstrap's primary color */
+            margin-right: 5px; /* Adjust the spacing as needed */
         }
 
-        .action-icons .edit i:hover {
-            color: #ffe28d;
-        }
-
-        .edit i.material-icons {
-            color: #FFC107;
-            font-size: 100%;
-            text-align: center;
-        }
-
-        .edit i.material-icons:hover {
-            color: #ffe28d;
-        }
 
         /* table contents */
 
@@ -105,6 +90,7 @@
         BoardVO post = boardDAO.getBoard(Integer.parseInt(id));
         request.setAttribute("post", post);
     %>
+
     <form id="viewPostForm" action="viewpost.jsp" method="get">
         <input type="hidden" name="id" value="<%= post.getSeq() %>"/>
         <table class="table">
@@ -137,15 +123,13 @@
                     <td class="title">Any Comment:</td>
                     <td><%= post.getComment() %></td>
                 </tr>
-                <tr class="toggle-buttons">
-                    <td class="title"></td>
-                    <td>
-                        <a class="edit" title="Edit" data-toggle="tooltip" href="editform.jsp?id=${post.getSeq()}">
-                            <i class="material-icons">&#xE254;</i></a>
-                        <a href="posts.jsp" class="btn btn-secondary">GO HOME</a>
-                    </td>
-                </tr>
+
             </table>
+                    <div class="col-md-12">
+                        <a class="bi bi-pencil" title="Edit" data-toggle="tooltip" href="editform.jsp?id=${post.getSeq()}"></a>
+                        <a class="btn btn-danger" href="deletepost.jsp?id=<%= post.getSeq() %>">Delete</a>
+                        <a class="btn btn-secondary" href="javascript:history.back()">Go back</a>
+                    </div>
                 </td>
             </tr>
 

@@ -8,20 +8,7 @@
 	<title>Edit Form</title>
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="styles/style.css">
-	<style>
-		.photo-col {
-			width: 300px;
-		}
-		.form-table-col {
-			width: 80%;
-		}
-		img {
-			margin: 20px;
-		}
-		.form-control {
-			width: 100%;
-		}
-	</style>
+
 </head>
 <body>
 <header>

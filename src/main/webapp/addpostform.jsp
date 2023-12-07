@@ -47,7 +47,7 @@
             <tr>
                 <td>Any comment:</td>
                 <td><label>
-                    <textarea class="form-control" rows="5" name="commment"></textarea>
+                    <textarea class="form-control" rows="5" name="comment"></textarea>
                 </label></td>
             </tr>
 
