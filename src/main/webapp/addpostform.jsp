@@ -8,10 +8,15 @@
     <title>Add Profile</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <script>
+        function goHome() {
+            window.location.href = "posts.jsp";
+        }
+    </script>
 </head>
 <body>
 <header>
-    <h1>FriendVault</h1>
+    <h1 onclick="goHome()">FriendVault</h1>
 </header>
 <section>
     <h2 class="sub">- Tell me About You -</h2>

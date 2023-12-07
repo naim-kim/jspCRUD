@@ -48,20 +48,19 @@
             background-color: #fff;
         }
         main.sub-pages {
-            width: 60%;
+            width: 70%;
             height: 90%;
             margin: 20px auto;
         }
+
         /* edit icon */
         .bi-pencil {
-            font-size: 1.5rem; /* Adjust the size as needed */
-            color: #007bff; /* Bootstrap's primary color */
-            margin-right: 5px; /* Adjust the spacing as needed */
+            font-size: 1.5rem;
+            color: #007bff;
+            margin-right: 5px;
         }
 
-
         /* table contents */
-
         table .title {
             font-size: 24px;
         }
@@ -72,10 +71,6 @@
          }
         .details tr {
             margin-bottom: 20px;
-        }
-        .toggle-buttons {
-            text-align: right;
-            font-size: 19px;
         }
     </style>
     <%
@@ -88,21 +83,22 @@
     <script>
         function confirmDelete() {
             // Display a confirmation dialog
-            var isConfirmed = confirm("Warning: You are about to delete an item. This action cannot be undone. Are you sure you want to proceed?");
+            var isConfirmed = confirm("Do you really want to delete this post?");
 
             if (isConfirmed) {
                 window.location.href = "deletepost.jsp?id=<%= post.getSeq() %>";
-                alert("Post has been deleted.");
             } else {
                 alert("Delete canceled.");
             }
         }
-
+            function goHome() {
+            window.location.href = "posts.jsp";
+        }
     </script>
 </head>
 <body>
 <header>
-    <h1>FriendVault</h1>
+    <h1 class="page-title" onclick="goHome()">FriendVault</h1>
 </header>
 <main class="sub-pages">
 
@@ -141,9 +137,16 @@
 
             </table>
                     <div class="col-md-12">
-                        <a class="bi bi-pencil" title="Edit" data-toggle="tooltip" href="editform.jsp?id=${post.getSeq()}"></a>
-                        <a class="btn btn-danger" onclick="confirmDelete()">Delete</a>
-                        <a class="btn btn-secondary" href="javascript:history.back()">Go back</a>
+                        <a class="btn btn-primary" title="Edit" data-toggle="tooltip" href="editform.jsp?id=${post.getSeq()}">
+                            <i class="bi bi-pencil-fill"></i> Edit
+                        </a>
+
+                        <a class="btn btn-danger" onclick="confirmDelete()">
+                            <i class="bi bi-trash-fill"></i> Delete
+                        </a>
+                        <a class="btn btn-secondary" href="javascript:history.back()">
+                            <i class="bi bi-house-fill"></i> Go Back
+                        </a>
                     </div>
                 </td>
             </tr>

@@ -25,8 +25,12 @@ header {
     text-align: left;
     padding: 20px;
 }
-header h1 {
+.page-title {
     font-size: 38px;
+}
+.page-title:hover {
+    cursor: pointer;
+    color: #3a5867;
 }
 main {
     padding: 20px;

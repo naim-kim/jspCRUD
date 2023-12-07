@@ -16,7 +16,7 @@
 		if (k == 1) {
 			msg = "Edited!";
 		} else {
-			msg = "Error: Failed Uploading new info";
+			msg = "Error: Failed Uploading edited info";
 		}
 %>
 

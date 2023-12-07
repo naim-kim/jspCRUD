@@ -11,7 +11,7 @@
 	BoardVO u = upload.uploadPhoto(request);
 
 	int i = boardDAO.insertBoard(u);
-	String msg = "데이터 추가 성공 !";
+	String msg = "Added to Friend Vault!";
 	if(i == 0) msg = "[에러] 데이터 추가 ";
 %>
 

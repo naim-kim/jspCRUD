@@ -7,12 +7,18 @@
 	<meta charset="UTF-8">
 	<title>Edit Form</title>
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 	<link rel="stylesheet" type="text/css" href="styles/style.css">
-
+	<script>
+		function goHome() {
+			window.location.href = "posts.jsp";
+		}
+	</script>
 </head>
 <body>
 <header>
-	<h1>FriendVault</h1>
+	<h1 onclick="goHome()">FriendVault</h1>
 </header>
 <section>
 	<h2 class="sub">- Edit -</h2>
@@ -74,8 +80,12 @@
 				</table>
 				<div class="buttons">
 					<div class="col-md-12">
-						<input type="submit" class="btn btn-primary" value="Submit"/>
-						<a class="btn btn-secondary" href="javascript:history.back()">Go back</a>
+						<button type="submit" class="btn btn-success">
+							<i class="bi bi-check-circle-fill"></i>  Submit
+						</button>
+						<a class="btn btn-secondary" href="posts.jsp">
+							<i class="bi bi-house-fill"></i>  Go Home
+						</a>
 					</div>
 				</div>
 			</div>
